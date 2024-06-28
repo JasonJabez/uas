@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ProductController;
@@ -22,7 +23,12 @@ use App\Http\Controllers\ImageController;
 
 Route::get('/', [HotelController::class, 'dashboardRoom']);
 
+Route::get('/login', function () {
+    return view('login');
+});
 
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 Route::resource('hotels', HotelController::class);
 Route::resource('products', ProductController::class);

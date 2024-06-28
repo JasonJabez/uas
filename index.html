@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    html,
+    body,
+    * {
+        margin: 0px;
+        margin-bottom: -10px;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .image {
+        position: relative;
+        width: 50%;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    .image img {
+        height: 100vh;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .content {
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-inline: 20px;
+        animation: slideInLeft 2s ease-in-out;
+    }
+
+    .content h1 {
+        font-size: 48px;
+        margin: 10px;
+        font-weight: 700;
+        color: white;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    .content p {
+        color: white;
+        font-size: 16px;
+        margin: 10px;
+        font-weight: 400;
+        text-align: center;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    .content a button {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        padding-inline: 40px;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    .content a button:hover {
+        background-color: #333;
+    }
+
+    body {
+        background-color: brown;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInRight {
+        0% {
+            transform: translateX(200%);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInLeft {
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Sahabat Roastingmu !</h1>
+            <p>Kami akan membantu anda untuk mengklasifikasi dan mengkategorisasi biji kopi anda</p>
+            <a href="/prediksi.html">
+                <button>
+                    Mulai
+                </button>
+            </a>
+
+        </div>
+        <div class="image">
+            <img src="./overhead-view-coffee-beverage.jpg" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
