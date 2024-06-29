@@ -21,20 +21,34 @@ use App\Http\Controllers\ImageController;
 |
 */
 
-Route::get('/', [HotelController::class, 'dashboardRoom']);
+Route::get('/', [HotelController::class, 'dashboardRoom'])->name('dashboard');
 
 Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
-Route::resource('hotels', HotelController::class);
-Route::resource('products', ProductController::class);
-Route::resource('facilities', FacilityController::class);
-Route::resource('users', UserController::class);
-Route::resource('transactions', TransactionController::class);
-Route::resource('transaction_details', TransactionDetailController::class);
-Route::resource('memberships', MembershipController::class);
-Route::resource('images', ImageController::class);
+Route::middleware(['role:Owner'])->group(function () {
+    Route::resource('hotels', HotelController::class);
+    Route::resource('products', ProductController::class);
+    Route::resource('facilities', FacilityController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('transactions', TransactionController::class);
+    Route::resource('transaction_details', TransactionDetailController::class);
+    Route::resource('memberships', MembershipController::class);
+    Route::resource('images', ImageController::class);
+    Route::post('/hotels', [HotelController::class, 'store'])->name('hotels.store');
+});
+
+// Route::middleware(['staff'])->group(function () {
+//     Route::resource('products', ProductController::class);
+//     Route::resource('facilities', FacilityController::class);
+//     Route::resource('transactions', TransactionController::class);
+//     Route::resource('transaction_details', TransactionDetailController::class);
+//     Route::resource('memberships', MembershipController::class);
+//     Route::resource('images', ImageController::class);
+// });

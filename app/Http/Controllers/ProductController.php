@@ -27,6 +27,7 @@ class ProductController extends Controller
             'hotel_id' => 'required|exists:hotels,id',
             'type' => 'required|in:Standar,Deluxe,Superior,Suite,Single Room,Double Room,Family Room',
             'price' => 'required|numeric',
+            'available_room' => 'required|numeric',
         ]);
 
         Product::create($request->all());
@@ -53,11 +54,12 @@ class ProductController extends Controller
             'hotel_id' => 'required|exists:hotels,id',
             'type' => 'required|in:Standar,Deluxe,Superior,Suite,Single Room,Double Room,Family Room',
             'price' => 'required|numeric',
+            'available_room' => 'required|numeric',
         ]);
 
         $product->update($request->all());
 
-        return redirect()->route('products.index')
+        return redirect()->route('hotels.show', $product->hotel_id)
             ->with('success', 'Product updated successfully.');
     }
 
@@ -65,7 +67,7 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('products.index')
+        return redirect()->route('hotels.show', $product->hotel_id)
             ->with('success', 'Product deleted successfully.');
     }
 }
