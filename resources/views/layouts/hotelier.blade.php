@@ -89,7 +89,7 @@
                                     class="nav-item nav-link {{ request()->is('facilities') ? 'active' : '' }}">Fasilitas</a>
                                 <a href="{{ route('hotels.index') }}"
                                     class="nav-item nav-link {{ request()->is('hotels') ? 'active' : '' }}">Hotels</a>
-                                <a href="{{ route('products.index') }}"
+                                <a href="{{ route('about') }}"
                                     class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">About Us</a>
                             </div>
                             <div class="d-flex gap-2">
