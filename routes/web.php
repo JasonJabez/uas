@@ -35,6 +35,7 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+
 Route::resource('memberships', MembershipController::class);
 
 Route::resource('hotels', HotelController::class)->only(['index', 'show']);
@@ -45,6 +46,7 @@ Route::resource('transactions', TransactionController::class)->only(['index', 's
 Route::resource('transaction_details', TransactionDetailController::class)->only(['index', 'show']);
 Route::resource('memberships', MembershipController::class)->only(['index', 'show']);
 Route::resource('images', ImageController::class)->only(['index', 'show']);
+Route::get("/transactions",[TransactionController::class,"create" ])->name("createTran");
 
 Route::middleware(['role:Owner'])->group(function () {
     Route::resource('hotels', HotelController::class)->except(['index', 'show']);

@@ -22,15 +22,31 @@ class TransactionController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'total_amount' => 'required|numeric',
-        ]);
+        // $request->validate([
+        //     'user_id' => 'required|exists:users,id',
+        //     'products' => 'required|array',
+        //     'products.*.id' => 'required|exists:products,id',
+        //     'products.*.quantity' => 'required|integer|min:1',
+        // ]);
 
-        $transaction = Transaction::create($request->all());
+        // $totalAmount = 0;
 
-        return redirect()->route('transactions.index')
-            ->with('success', 'Transaction created successfully.');
+        // foreach ($request->products as $productData) {
+        //     $product = Product::find($productData['id']);
+        //     $totalAmount += $product->price * $productData['quantity'];
+        // }
+
+        // // Calculate tax (11% of total amount)
+        // $tax = $totalAmount * 0.11;
+        // $totalAmount += $tax;
+
+        // $transaction = Transaction::create([
+        //     'user_id' => $request->user_id,
+        //     'total_amount' => $totalAmount,
+        // ]);
+
+        // return redirect()->route('transactions.index')
+        //     ->with('success', 'Transaction created successfully.');
     }
 
     public function show(Transaction $transaction)

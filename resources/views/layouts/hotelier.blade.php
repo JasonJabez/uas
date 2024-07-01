@@ -91,6 +91,8 @@
                                     class="nav-item nav-link {{ request()->is('hotels') ? 'active' : '' }}">Hotels</a>
                                 <a href="{{ route('about') }}"
                                     class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">About Us</a>
+                                <a href="{{ route('memberships.index') }}"
+                                    class="nav-item nav-link {{ request()->is('memberships') ? 'active' : '' }}">Member</a>
                             </div>
                             <div class="d-flex gap-2">
                                 @if (Auth::check())
