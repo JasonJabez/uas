@@ -14,7 +14,7 @@
                 </select>
             </div>
 
-            <h3>Select Products</h3>
+            <h3>Select Product</h3>
             <div class="row">
             
                     <div class="col-md-6 mb-4">
